@@ -137,7 +137,7 @@ qm create $VMID -agent 1 -bios ovmf -name $VM_NAME -net0 virtio,bridge=vmbr0 \
 pvesm alloc $STORAGE $VMID $DISK0 128 1>&/dev/null
 qm importdisk $VMID ${FILE%.*} $STORAGE ${IMPORT_OPT:-} 1>&/dev/null
 qm set $VMID \
-  -efidisk0 ${DISK0_REF},size=128K,pre-enrolled-keys=1 \
+  -efidisk0 ${DISK0_REF},size=128K,pre-enrolled-keys=0 \
   -sata0 ${DISK1_REF},size=6G > /dev/null
 qm set $VMID \
   -boot order=sata0 > /dev/null
